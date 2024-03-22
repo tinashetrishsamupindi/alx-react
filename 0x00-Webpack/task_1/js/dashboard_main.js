@@ -1,21 +1,18 @@
-const $ = require( "jquery" );
-// Load the full build
-const _ = require("lodash");
+import $ from 'jquery';
+import _ from 'lodash';
 
 let count = 0;
 
 function updateCounter() {
   count++;
-  $( "#count" ).text(`${count} clicks on the button` );
+  $('#count').text(${count} clicks on the button);
 }
 
-const $button = $("<button>Click here to get started</button>").on(
-  "click",
-  _.debounce( updateCounter, 500, { leading: true, trailing: false })
-);
+$('#root').append('<p>Holberton Dashboard</p>');
+$('#root').append('<p>Dashboard data for the students</p>');
+$('#root').append('<button id="clickButton">Click here to get started</button>');
+$('#root').append('<p id="count"></p>');
+$('#root').append('<p>Copyright - Holberton School</p>');
 
-$('body').append("<p>Holberton Dashboard</p>");
-$('body').append("<p>Dashboard data for the students</p>");
-$('body').append($button);
-$('body').append("<p id='count'></p>");
-$('body').append("<p>Copyright - Holberton School</p>");
+$('#clickButton').on('click', _.debounce(updateCounter, 500));
+
